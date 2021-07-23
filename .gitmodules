@@ -1,0 +1,6 @@
+[submodule "api"]
+	path = api
+	url = https://github.com/acelera5-g3/carango-bom-api-base.git
+[submodule "web"]
+	path = web
+	url = https://github.com/acelera5-g3/carango-bom-base.git
