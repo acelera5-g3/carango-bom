@@ -14,17 +14,17 @@ jobs:
         with:
           submodules: recursive
       - name: Login to Heroku Container registry
-        working-directory: ./web
+        working-directory: ./api
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:login
       - name: Build and push
-        working-directory: ./web
+        working-directory: ./api
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:push -a ${{ secrets.HEROKU_FRONT_APP_NAME }} web
+        run: heroku container:push -a ${{ secrets.HEROKU_API_APP_NAME }} web
       - name: Release on Heroku
-        working-directory: ./web
+        working-directory: ./api
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release -a ${{ secrets.HEROKU_FRONT_APP_NAME }} web
+        run: heroku container:release -a ${{ secrets.HEROKU_API_APP_NAME }} web
