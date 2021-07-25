@@ -12,9 +12,9 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: jdbc:mysql://db:3306/carangobom
-      DATABASE_USER: root
-      DATABASE_PASSWORD:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/carangobom
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
       SPRING_PROFILES_ACTIVE: prod
       PORT: 8080
       JWT_SECRET: 9ac7ff63ea6f3d3607d20f6f4e900547
@@ -29,6 +29,7 @@ services:
       dockerfile: Dockerfile
       args:
         REACT_APP_API_BASE_URL: http://127.0.0.1:8080
+        PORT: 80
     ports:
       - "9090:80"
     restart: always
