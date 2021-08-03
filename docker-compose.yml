@@ -28,6 +28,7 @@ services:
       context: web
       dockerfile: Dockerfile
       args:
+	NODE_ENV: production
         API_BASE: http://localhost:8080
         PORT: 80
     ports:
